@@ -50,7 +50,9 @@ of username and password; and in OAuth2.0, the client token.</p>
 <li class="toctree-l2"><a class="reference internal" href="quick-start.html#step-5">Step 5</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="basic.html">Basic Functionality</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Basic Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic.html#graphql-client">GraphQL Client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basic.html#graphqlclient">GraphQLClient</a></li>
 <li class="toctree-l2"><a class="reference internal" href="basic.html#apiclient">APIClient</a></li>
 <li class="toctree-l2"><a class="reference internal" href="basic.html#entity">Entity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="basic.html#asset">Asset</a></li>
@@ -98,6 +100,31 @@ of username and password; and in OAuth2.0, the client token.</p>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>Here’s an example on how the Quartic SDK can be used:</p>
+</div>
+<div class="section" id="graphqlclient">
+<h2>GraphQLClient<a class="headerlink" href="#graphqlclient" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assuming that the Quartic.ai server is at `https://test.quartic.ai/`, with the login</span>
+<span class="c1"># and the username and password is `username` and `password.`</span>
+
+<span class="kn">from</span> <span class="nn">quartic_sdk</span> <span class="kn">import</span> <span class="n">GraphqlClient</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">GraphqlClient</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://stag.quartic.ai&#39;</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+
+<span class="c1"># Executing Query by:</span>
+
+<span class="n">query</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">query MyQuery {</span>
+<span class="s1">Site {</span>
+<span class="s1">    id</span>
+<span class="s1">    name</span>
+<span class="s1">}</span>
+<span class="s1">}</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">execute_query</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
 <div class="section" id="getting-the-assets-tags-batches-from-the-server">
 <h3>Getting the assets, tags, batches from the server<a class="headerlink" href="#getting-the-assets-tags-batches-from-the-server" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assuming that the Quartic.ai server is at `https://test.quartic.ai`, with the login</span>
@@ -139,6 +166,7 @@ of username and password; and in OAuth2.0, the client token.</p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basic.html">Basic Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic.html#graphql-client">GraphQL Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="model_creation.html">Model Creation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>

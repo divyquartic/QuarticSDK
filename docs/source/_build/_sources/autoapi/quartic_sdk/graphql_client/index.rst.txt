@@ -1,0 +1,51 @@
+:mod:`quartic_sdk.graphql_client`
+=================================
+
+.. py:module:: quartic_sdk.graphql_client
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   quartic_sdk.graphql_client.GraphqlClient
+
+
+
+.. class:: GraphqlClient(url: str, username: str = None, password: str = None, token: str = None, timeout: Optional[Union[(aiohttp.ClientTimeout, float)]] = None, verify_ssl: bool = True)
+
+
+   Execute Query.
+
+   .. method:: version()
+      :staticmethod:
+
+      Return the SDK version
+
+
+   .. method:: _get_client(self)
+      :async:
+
+
+   .. method:: _get_graphql_url(self) -> str
+
+      Generates the graphql endpoint.
+
+
+   .. method:: __execute__query(self, query: str)
+      :async:
+
+      Execute query
+
+
+   .. method:: execute_query(self, query: str)
+
+      Execute query with query param.
+      :param query: Query that needs to be executed
+
+
+

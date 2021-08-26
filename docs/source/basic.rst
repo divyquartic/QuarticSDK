@@ -5,8 +5,96 @@ Basic Functionality
 This article explains the various classes of Quartic SDK along with their methods and
 available attributes.
 
-APIClient
+===============
+GraphQL Client
+===============
+
+GraphQLClient
 ------------
+
+Class refers to the Graphql client which is used as the interface between
+the user querying the Quartic AI Platform and their use case.
+
+This class has the following parameters for initialization:
+
+-  **url (mandatory)**: Refers to the host url the user connects to for
+   making API calls.
+-  **username (optional)**: Required for Basic Authentication.
+-  **password (optional)**: Required for Basic Authentication.
+-  **token (optional)**: Required for OAuth2.0 Authentication.
+-  **ssl (optional)**: Required when the host needs to be
+   verified for SSL.
+- **timeout (optional)**: Required if the user wants to specify timeout for api calls.
+
+Here's an example:
+
+::
+
+    client = GraphqlClient(url='https://stag.quartic.ai', username="username", password="password")
+
+The two methods are BasicAuthentication and OAuth2.0:
+*****************************************************
+
+BasicAuthentication:
+~~~~~~~~~~~~~~~~~~~~
+
+The user must pass the username and password along with the hostname in the GraphqlClient
+to ensure the successive API calls are authenticated via Basic Authentication
+
+::
+
+    client = GraphqlClient(host="http://test.quartic.ai", username="username", password="password")
+
+OAuth2.0
+~~~~~~~~
+
+The user must pass the OAuth token along with the hostname to ensure that all the
+successive API calls are authenticated via OAuth2.0. For the detailed information on fetching
+tokens, please refer to the Global Settings article in the Quartic Knowledge Base.
+
+::
+
+    client = GraphqlClient(url="http://test.quartic.ai", oauth_token="9865c994212e495690c2db3fc6cbdfea")
+
+
+
+The available methods are as follows:
+*************************************
+
+.version
+~~~~~~~~
+
+This method returns the current version of the package.
+
+::
+
+    client.version() # Returns 2.1.0 as of the time of writing this document
+
+.execute
+~~~~~~~~
+
+This method executes the GraphQL query.
+
+-  **query\_params (required)**: User needs to pass the string in the format given below:
+|   ```
+query='''
+query MyQuery {
+  Site {
+    id
+    name
+  }
+}'''
+
+```
+
+::
+
+    client.execute(query) # Returns a json response on a success.
+
+
+===============
+API Client
+===============
 
 Class refers to the API client which is used as the interface between
 the user querying the Quartic AI Platform and their use case.

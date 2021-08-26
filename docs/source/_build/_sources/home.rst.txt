@@ -20,6 +20,34 @@ Example
 
 Here's an example on how the Quartic SDK can be used:
 
+GraphQLClient
+--------------
+
+::
+
+    # Assuming that the Quartic.ai server is at `https://test.quartic.ai/`, with the login
+    # and the username and password is `username` and `password.`
+
+    from quartic_sdk import GraphqlClient
+
+    client = GraphqlClient(url='https://stag.quartic.ai', username='username', password='password')
+
+    # Executing Query by:
+
+    query='''
+    query MyQuery {
+    Site {
+        id
+        name
+    }
+    }
+    '''
+
+    result = client.execute_query(query=query)
+    print(result['data'])
+
+
+
 Getting the assets, tags, batches from the server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

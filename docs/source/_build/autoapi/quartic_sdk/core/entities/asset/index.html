@@ -51,7 +51,7 @@
 </table>
 <dl class="py class">
 <dt id="quartic_sdk.core.entities.asset.Asset">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">quartic_sdk.core.entities.asset.</span></code><code class="sig-name descname"><span class="pre">Asset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body_json</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_helper</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quartic_sdk.core.entities.asset.Asset" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">quartic_sdk.core.entities.asset.</span></code><code class="sig-name descname"><span class="pre">Asset</span></code><a class="headerlink" href="#quartic_sdk.core.entities.asset.Asset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../base/index.html#quartic_sdk.core.entities.base.Base" title="quartic_sdk.core.entities.base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">quartic_sdk.core.entities.base.Base</span></code></a></p>
 <p>The given class refers to the asset entity which is created based upon the
 asset object returned from the API</p>
@@ -104,7 +104,11 @@ it takes the value as “json”</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>transformations</strong> – <p>Refers to the list of transformations. It supports either
 interpolation or aggregation, depending upon which, we pass the value of this
-dictionary. An example value here is:
+dictionary. If <cite>transformation_type</cite> is “aggregation”, an optional key can be
+passed called <cite>aggregation_timestamp</cite>, which determines how the timestamp information
+will be retained after aggregation. Valid options are “first”, “last” or “discard”. By
+default, the last timestamp in each group will be retained.
+An example value here is:
 [{</p>
 <blockquote>
 <div><p>”transformation_type”: “interpolation”,
@@ -114,7 +118,8 @@ dictionary. An example value here is:
 <dl class="simple">
 <dt>}, {</dt><dd><p>“transformation_type”: “aggregation”,
 “aggregation_column”: “4”,
-“aggregation_dict”: {“3”: “max”}</p>
+“aggregation_dict”: {“3”: “max”},
+“aggregation_timestamp”: “last”,</p>
 </dd>
 </dl>
 <p>}]</p>
@@ -164,6 +169,7 @@ readability
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../quick-start.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../basic.html">Basic Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../basic.html#graphql-client">GraphQL Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../model_creation.html">Model Creation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../index.html">API Reference</a></li>
