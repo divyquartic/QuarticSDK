@@ -17,14 +17,14 @@ the user querying the Quartic AI Platform and their use case.
 
 This class has the following parameters for initialization:
 
--  **url (mandatory)**: Refers to the host url the user connects to for
+-  **url (mandatory)**: Refers to the host URL the user connects to for
    making API calls.
 -  **username (optional)**: Required for Basic Authentication.
 -  **password (optional)**: Required for Basic Authentication.
 -  **token (optional)**: Required for OAuth2.0 Authentication.
 -  **ssl (optional)**: Required when the host needs to be
    verified for SSL.
-- **timeout (optional)**: Required if the user wants to specify timeout for api calls.
+- **timeout (optional)**: Required if the user wants to specify timeout for API calls.
 
 Here's an example:
 
@@ -32,29 +32,29 @@ Here's an example:
 
     client = GraphqlClient(url='https://stag.quartic.ai', username="username", password="password")
 
-The two methods are BasicAuthentication and OAuth2.0:
+The two methods are Basic Authentication and OAuth2.0:
 *****************************************************
 
-BasicAuthentication:
+Basic Authentication:
 ~~~~~~~~~~~~~~~~~~~~
 
 The user must pass the username and password along with the hostname in the GraphqlClient
-to ensure the successive API calls are authenticated via Basic Authentication
+to ensure the successive API calls are authenticated via Basic Authentication.
 
 ::
 
-    client = GraphqlClient(host="http://test.quartic.ai", username="username", password="password")
+    client = GraphqlClient(host="https://test.quartic.ai", username="username", password="password")
 
 OAuth2.0
 ~~~~~~~~
 
 The user must pass the OAuth token along with the hostname to ensure that all the
-successive API calls are authenticated via OAuth2.0. For the detailed information on fetching
-tokens, please refer to the Global Settings article in the Quartic Knowledge Base.
+successive API calls are authenticated via OAuth2.0. For detailed information on fetching
+tokens, please refer to the Quartic Knowledge Base.
 
 ::
 
-    client = GraphqlClient(url="http://test.quartic.ai", oauth_token="9865c994212e495690c2db3fc6cbdfea")
+    client = GraphqlClient(url="https://test.quartic.ai", oauth_token="9865c994212e495690c2db3fc6cbdfea")
 
 
 
@@ -114,14 +114,14 @@ Here's an example:
 
 ::
 
-    client = APIClient(host="http://test.quartic.ai", username="username", password="password")
+    client = APIClient(host="https://test.quartic.ai", username="username", password="password")
 
 It can be noted that the class provides two methods of authentication to the user.
 
 The two methods are BasicAuthentication and OAuth2.0:
 *****************************************************
 
-BasicAuthentication:
+Basic Authentication:
 ~~~~~~~~~~~~~~~~~~~~
 
 The user must pass the username and password along with the hostname in the APIClient
@@ -129,7 +129,7 @@ to ensure all the successive API calls are authenticated via Basic Authenticatio
 
 ::
 
-    client = APIClient(host="http://test.quartic.ai", username="username", password="password")
+    client = APIClient(host="https://test.quartic.ai", username="username", password="password")
 
 OAuth2.0
 ~~~~~~~~
@@ -140,7 +140,7 @@ tokens, please refer to the Global Settings article in the Quartic Knowledge Bas
 
 ::
 
-    client = APIClient(host="http://test.quartic.ai", oauth_token="9865c994212e495690c2db3fc6cbdfea")
+    client = APIClient(host="https://test.quartic.ai", oauth_token="9865c994212e495690c2db3fc6cbdfea")
 
 The available methods are as follows:
 *************************************
