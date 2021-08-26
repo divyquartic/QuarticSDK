@@ -48,12 +48,14 @@ class GraphqlClient:
         return __version__
 
     async def _get_client(self):
-        _client_opts = dict()
+        _client_opts = {}
         if self.username and self.password:
-            _opts = dict()
-            _opts['login'] = self.username
-            _opts['password'] = self.password
-            _opts['encoding'] = 'utf-8'
+            _opts = {
+                'login': self.username,
+                'password': self.password,
+                'encoding': 'utf-8',
+            }
+
             _client_opts['auth'] = aiohttp.BasicAuth(**_opts)
         elif self.token:
             _client_opts['headers'] = {'Authorization': f"Bearer {self.token}"}
