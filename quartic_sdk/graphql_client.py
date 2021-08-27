@@ -6,7 +6,6 @@ from typing import Optional, Union
 import validators
 
 
-
 class GraphqlClient:
     """
     Execute Query.
