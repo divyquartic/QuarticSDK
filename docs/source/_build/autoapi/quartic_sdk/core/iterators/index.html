@@ -125,15 +125,22 @@ json(when value is “json”) or pandas dataframe(when value is “pd”). By d
 it takes the value as “json”</p></li>
 <li><p><strong>transformations</strong> – <p>Refers to the list of transformations. It supports either
 interpolation or aggregation, depending upon which, we pass the value of this
-dictionary. An example value here is:</p>
-<dl class="simple">
-<dt>[{</dt><dd><p>“transformation_type”: “interpolation”,
+dictionary. If <cite>transformation_type</cite> is “aggregation”, an optional key can be
+passed called <cite>aggregation_timestamp</cite>, which determines how the timestamp information
+will be retained after aggregation. Valid options are “first”, “last” or “discard”. By
+default, the last timestamp in each group will be retained.
+An example value here is:
+[{</p>
+<blockquote>
+<div><p>”transformation_type”: “interpolation”,
 “column”: “3”,
 “method”: “linear”</p>
-</dd>
+</div></blockquote>
+<dl class="simple">
 <dt>}, {</dt><dd><p>“transformation_type”: “aggregation”,
 “aggregation_column”: “4”,
-“aggregation_dict”: {“3”: “max”}</p>
+“aggregation_dict”: {“3”: “max”},
+“aggregation_timestamp”: “last”,</p>
 </dd>
 </dl>
 <p>}]</p>

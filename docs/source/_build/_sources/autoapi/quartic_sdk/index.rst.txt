@@ -25,6 +25,7 @@ Submodules
    _version/index.rst
    api_client/index.rst
    exceptions/index.rst
+   graphql_client/index.rst
 
 
 Package Contents
@@ -36,6 +37,7 @@ Classes
 .. autoapisummary::
 
    quartic_sdk.APIClient
+   quartic_sdk.GraphqlClient
 
 
 
@@ -213,6 +215,31 @@ Classes
           !! processed by numpydoc !!
 
 
+   .. method:: event_frames(self, query_params={})
+
+      Get the Event Frames
+      :param query_params: Dictionary of filter conditions
+      :return: (EntityList) List of Event Frames belonging to the asset
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
    .. method:: list_models(self, is_active: bool = None, ml_node: int = None, query_params={})
 
       List models and its parameters accessible by user
@@ -220,6 +247,227 @@ Classes
       :param ml_node:   Ml Node id to filter models deployed to particular node
       :param query_params: Dictionary of filter conditions
       :return:          list of dictionary
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. method:: products(self, query_params={})
+
+      This method is used to fetch list of all product belongs to a particular client
+      :param query_params: Dictionary of filter conditions
+      :return: Product(Product Entity) Objects
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. method:: sites(self, query_params={})
+
+      This method is used to fetch all sites available for a user's client
+      :param query_params: Dictionary of filter conditions
+      :return: Site(Site Entity) Objects
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+
+.. class:: GraphqlClient(url: str, username: str = None, password: str = None, token: str = None, timeout: Optional[Union[aiohttp.ClientTimeout, float]] = None, verify_ssl: bool = True)
+
+
+   Execute Query.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. method:: version()
+      :staticmethod:
+
+      Return the SDK version
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. method:: _get_client(self) -> aiohttp.ClientSession
+      :async:
+
+      Get aiohttp client session object.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. method:: _get_graphql_url(self) -> str
+
+      Generates the graphql endpoint.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. method:: __execute__query(self, query: str, variables: dict = None)
+      :async:
+
+      Execute query
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. method:: execute_query(self, query: str, variables: dict = None)
+
+      Execute query with query param.
+      :param query: Query that needs to be executed
+      :param variables: Dictionary of variables that are used inside the query.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. method:: execute_async_query(self, query: str, variables: dict = None)
+      :async:
+
+      Execute query asynchronously.
+      :param query: Query that needs to be executed
+      :param variables: Dictionary of variables that are used inside the query.
+      :return:
 
 
 

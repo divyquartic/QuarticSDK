@@ -91,7 +91,7 @@ tokens, please refer to the Global Settings article in the Quartic Knowledge Bas
 <p>This method returns the list of assets that the authenticated user has
 access to. The list of assets are an object of type <code class="docutils literal notranslate"><span class="pre">EntityList</span></code>. More
 details on the class is provided below.</p>
-<p>The method parameters are as follows:</p>
+<p>The method parameters as included in v2.0.0 are as follows:</p>
 <ul class="simple">
 <li><p><strong>query_params (optional)</strong>: User can pass a dictionary of conditions
 and condition values to filter the Assets accordingly.
@@ -109,7 +109,7 @@ Filter conditions can be like</p></li>
 <p>This method returns the list of context frames which are created using the assets
 that the user has access to. The list of context frames are an
 object of type <code class="docutils literal notranslate"><span class="pre">EntityList</span></code>. More details on the class is provided below.</p>
-<p>The method parameters are as follows:</p>
+<p>The method parameters as included in v2.0.0 are as follows:</p>
 <ul class="simple">
 <li><p><strong>query_params (optional)</strong>: User can pass a dictionary of conditions
 and condition values to filter the ContextFrame Occurrences accordingly.
@@ -122,7 +122,7 @@ Filter conditions can be like
 </div>
 <div class="section" id="tags">
 <h4>.tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h4>
-<p>This method requires the following parameters to be called:</p>
+<p>The method parameters as included in v2.0.0 are as follows:</p>
 <p><strong>asset_id (mandatory)</strong>: The asset_id of the asset whose tags are to
 be returned.</p>
 <p><strong>query_params (optional)</strong>: User can pass a dictionary of conditions
@@ -138,7 +138,7 @@ Filter conditions can be like
 <p>This method returns the list of all the data sources which the user has access to.
 The list of data sources are an object of type <code class="docutils literal notranslate"><span class="pre">EntityList</span></code>. More details on the class
 are provided below.</p>
-<p>The method parameters are as follows:</p>
+<p>The method parameters as included in v2.0.0 are as follows:</p>
 <ul class="simple">
 <li><p><strong>query_params (optional)</strong>: User can pass a dictionary of conditions
 and condition values to filter the Assets accordingly.
@@ -160,6 +160,34 @@ will list the models which are active in the Quartic AI Platform.</p></li>
 <code class="docutils literal notranslate"><span class="pre">list_models</span></code> will list all the custom models that are deployed
 into a specific ml node.</p></li>
 </ul>
+</div>
+<div class="section" id="products">
+<h4>.products<a class="headerlink" href="#products" title="Permalink to this headline">¶</a></h4>
+<p>This method is used to fetch list of all product belongs to a particular client.
+The method parameters as included in v2.0.0 are as follows:</p>
+<ul class="simple">
+<li><p><strong>query_params (optional)</strong>: User can pass a dictionary of conditions
+and condition values to filter the Products accordingly.
+Filter conditions can be like
+<code class="docutils literal notranslate"><span class="pre">{&quot;created_at__gt&quot;:</span> <span class="pre">162002555700}</span></code></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">products</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">products</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sites">
+<h4>.sites<a class="headerlink" href="#sites" title="Permalink to this headline">¶</a></h4>
+<p>This method is used to fetch all sites available for a user’s client.
+The method parameters as included in v2.0.0 are as follows:</p>
+<ul class="simple">
+<li><p><strong>query_params (optional)</strong>: User can pass a dictionary of conditions
+and condition values to filter the Products accordingly.
+Filter conditions can be like
+<code class="docutils literal notranslate"><span class="pre">{&quot;created_at__gt&quot;:</span> <span class="pre">162002555700}</span></code></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sites</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">sites</span><span class="p">()</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -202,8 +230,8 @@ template as <cite>Asset: {asset_name}_{asset_id}</cite>. The available attribute
 <li><p><strong>created_at</strong>: The created at time of the asset in epoch</p></li>
 <li><p><strong>status</strong>: The streaming status of the asset. They are given by:</p></li>
 </ul>
-<table class="colwidths-given docutils align-default" id="id15">
-<caption><span class="caption-text">Asset streaming status</span><a class="headerlink" href="#id15" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id19">
+<caption><span class="caption-text">Asset streaming status</span><a class="headerlink" href="#id19" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -237,7 +265,7 @@ template as <cite>Asset: {asset_name}_{asset_id}</cite>. The available attribute
 <h4>.get_tags<a class="headerlink" href="#get-tags" title="Permalink to this headline">¶</a></h4>
 <p>The method returns all the tags present in the given asset in the form
 of <code class="docutils literal notranslate"><span class="pre">EntityList</span></code> where each object refers to <code class="docutils literal notranslate"><span class="pre">Tag</span></code>.</p>
-<p>The method parameters are as follows:</p>
+<p>The method parameters as included in v2.0.0 are as follows:</p>
 <ul class="simple">
 <li><p><strong>query_params (optional)</strong>: User can pass a dictionary of conditions
 and condition values to filter the tags accordingly.
@@ -251,7 +279,7 @@ Filter conditions can be like</p></li>
 <h4>.batches<a class="headerlink" href="#batches" title="Permalink to this headline">¶</a></h4>
 <p>The method returns all the batches present in the given asset in the
 form of <code class="docutils literal notranslate"><span class="pre">EntityList</span></code> where each object refers to <code class="docutils literal notranslate"><span class="pre">Batch</span></code>.</p>
-<p>The method parameters are as follows:</p>
+<p>The method parameters as included in v2.0.0 are as follows:</p>
 <ul class="simple">
 <li><p><strong>query_params (optional)</strong>: User can pass a dictionary of conditions
 and condition values to filter the batches accordingly.
@@ -303,8 +331,8 @@ template as <cite>Tag: {tag_name}_{tag_id}</cite></p>
 <li><p><strong>tag_type</strong>: The tag types:- 1.Raw, 2.Soft, 3.Aggregation, 4.Bitwise, 5.Writeback</p></li>
 <li><p><strong>tag_data_type</strong>: The tag data types. They are given by</p></li>
 </ul>
-<table class="colwidths-given docutils align-default" id="id16">
-<caption><span class="caption-text">Tag Data Types</span><a class="headerlink" href="#id16" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id20">
+<caption><span class="caption-text">Tag Data Types</span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -337,8 +365,8 @@ template as <cite>Tag: {tag_name}_{tag_id}</cite></p>
 <li><p><strong>edge_connector</strong>: The data source ID</p></li>
 <li><p><strong>tag_process_type</strong>: The tag process types. They are given by:</p></li>
 </ul>
-<table class="colwidths-given docutils align-default" id="id17">
-<caption><span class="caption-text">Tag Process Type</span><a class="headerlink" href="#id17" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id21">
+<caption><span class="caption-text">Tag Process Type</span><a class="headerlink" href="#id21" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -381,8 +409,8 @@ template as <cite>Tag: {tag_name}_{tag_id}</cite></p>
 <ul class="simple">
 <li><p><strong>category</strong>: Intelligence Categories. They are given by:</p></li>
 </ul>
-<table class="colwidths-given docutils align-default" id="id18">
-<caption><span class="caption-text">Tag Intelligence Categories</span><a class="headerlink" href="#id18" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id22">
+<caption><span class="caption-text">Tag Intelligence Categories</span><a class="headerlink" href="#id22" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -461,7 +489,6 @@ template as <cite>Batch: {batch_name}_{batch_id}</cite></p>
 <li><p><strong>batch_name</strong>: Batch Name</p></li>
 <li><p><strong>start</strong>: Batch start time in epoch</p></li>
 <li><p><strong>stop</strong>: Batch stop time in epoch</p></li>
-<li><p><strong>asset</strong>: Asset ID</p></li>
 <li><p><strong>notes</strong>: List of notes regarding the batch</p></li>
 <li><p><strong>is_questionable</strong>: Whether the batch is questionable</p></li>
 </ul>
@@ -480,8 +507,8 @@ template as <cite>datasource: {datasource_name}_{datasource_id}</cite></p>
 <li><p><strong>edge_device</strong>: ID of the edge node</p></li>
 <li><p><strong>connector_protocol</strong>: The different datasource types are as follows:</p></li>
 </ul>
-<table class="colwidths-given docutils align-default" id="id19">
-<caption><span class="caption-text">Data Source connector protocol</span><a class="headerlink" href="#id19" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id23">
+<caption><span class="caption-text">Data Source connector protocol</span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -524,8 +551,8 @@ template as <cite>datasource: {datasource_name}_{datasource_id}</cite></p>
 <li><p><strong>name</strong>: Name of the datasource</p></li>
 <li><p><strong>stream_status</strong>: The stream status for the datasource are as follows:</p></li>
 </ul>
-<table class="colwidths-given docutils align-default" id="id20">
-<caption><span class="caption-text">Data Source streaming status</span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id24">
+<caption><span class="caption-text">Data Source streaming status</span><a class="headerlink" href="#id24" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -592,6 +619,30 @@ of interpolations and aggregations here. Further details on
 transformations is provided towards the end of this documentation.</p></li>
 </ul>
 </div>
+<div class="section" id="historical-data">
+<h4>.historical_data<a class="headerlink" href="#historical-data" title="Permalink to this headline">¶</a></h4>
+<p>The method returns the historical tag data iterator for all the tags present in the
+datasource for the set <code class="docutils literal notranslate"><span class="pre">start_time</span></code> and <code class="docutils literal notranslate"><span class="pre">stop_time</span></code>. It can be used to iterate
+through the ddata in custom batches as decided by the user. More details are
+provided under the <code class="docutils literal notranslate"><span class="pre">HistoricalTagDataIterator</span></code> subsection.</p>
+<p>The method parameters are as follows:</p>
+<ul class="simple">
+<li><p><strong>start_time (mandatory)</strong>: (epoch) This refers to the
+<code class="docutils literal notranslate"><span class="pre">start_time</span></code> for fetching the data of the datasource.</p></li>
+<li><p><strong>stop_time (mandatory)</strong>: (epoch) This refers to the <code class="docutils literal notranslate"><span class="pre">stop_time</span></code>
+for fetching the data of the data source.</p></li>
+<li><p><strong>batch_size (optional)</strong>: This refers to the number of rows in each page
+while iterating through the historical data</p></li>
+<li><p><strong>max_records (optional)</strong>: This refers to the maximum number of records
+that are to be fetched in the API call</p></li>
+<li><p><strong>tags (optional)</strong>: (EntityList) This is the entitylist of tags. This is an
+optional value, and will take all the data source tags by default</p></li>
+<li><p><strong>return_type (optional)</strong>: The user can pass either <code class="docutils literal notranslate"><span class="pre">pd</span></code>, which
+will return the pandas dataframe iterator, or <code class="docutils literal notranslate"><span class="pre">json</span></code> which will
+return json object on return. This value takes the <code class="docutils literal notranslate"><span class="pre">pd</span></code> value as
+default.</p></li>
+</ul>
+</div>
 </div>
 </div>
 <div class="section" id="contextframe">
@@ -610,17 +661,18 @@ template as <cite>ContextFrame: {context_frame_id}</cite></p>
 </ul>
 <div class="section" id="id10">
 <h3>The available methods are as follows:<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
+<ul>
 <li><p><strong>occurrences</strong>: The method returns all the occurrences of the given
 ContextFrame in the form of <code class="docutils literal notranslate"><span class="pre">EntityList</span></code> where each object refers
-to <code class="docutils literal notranslate"><span class="pre">ContextFrameOccurrence</span></code>.</p></li>
-</ul>
-<p>The method parameters are as follows:</p>
+to <code class="docutils literal notranslate"><span class="pre">ContextFrameOccurrence</span></code>.</p>
+<p>The method parameters as included in v2.0.0 are as follows:</p>
 <ul class="simple">
 <li><p><strong>query_params (optional)</strong>: User can pass a dictionary of conditions
 and condition values to filter the ContextFrame Occurrences accordingly.
 Filter conditions can be like
 <code class="docutils literal notranslate"><span class="pre">{&quot;start_ef_occurrence&quot;:</span> <span class="pre">&quot;A3412&quot;,</span> <span class="pre">&quot;stop_ef_occurrence&quot;:</span> <span class="pre">&quot;C7415&quot;}</span></code></p></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -780,6 +832,26 @@ method divides the complete interval between <code class="docutils literal notra
 <code class="docutils literal notranslate"><span class="pre">stop_time</span></code> into different time_ranges, with each range containing up
 to 200,000 data points for all the tags. The user can loop through this
 interval to get all the data points.</p>
+</div>
+<div class="section" id="historicaltagdataiterator">
+<h2>HistoricalTagDataIterator<a class="headerlink" href="#historicaltagdataiterator" title="Permalink to this headline">¶</a></h2>
+<p>Querying historical data for any set of tags in any given duration returns
+an instance of <code class="docutils literal notranslate"><span class="pre">HistoricalTagDataIterator</span></code>, which can be used to iterate
+between the given time range. When the <code class="docutils literal notranslate"><span class="pre">.historical_data</span></code> of data source
+is called, the class queries via cursor, based upon the entered <code class="docutils literal notranslate"><span class="pre">batch_size</span></code></p>
+<div class="section" id="id15">
+<h3>The available methods are as follows:<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="get-complete-data-in-range">
+<h4>.get_complete_data_in_range<a class="headerlink" href="#get-complete-data-in-range" title="Permalink to this headline">¶</a></h4>
+<p>The method loops through the complete range and returns the final data frame
+which is required. Note that this is meant to be used only for pandas return
+of historical data and not for json return. The method has the following parameters:</p>
+<ul class="simple">
+<li><p><strong>historical_data_iterator (mandatory)</strong> This is the historicaldataiterator
+object whose complete data is to be returned</p></li>
+</ul>
+</div>
+</div>
 <div class="section" id="transformations">
 <h3>Transformations:<a class="headerlink" href="#transformations" title="Permalink to this headline">¶</a></h3>
 <p>The tag data iterator is created based upon the multiple transformations
@@ -817,6 +889,151 @@ aggregated.</p></li>
 </div>
 </div>
 </div>
+<div class="section" id="procedure">
+<h2>Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">¶</a></h2>
+<p>This refers to the product (Product Harbour) procedures. Procedures are present/created within the Product</p>
+<p>The available attributes in this class are:</p>
+<ul class="simple">
+<li><p><strong>id</strong>: Procedure ID</p></li>
+<li><p><strong>name</strong>: Procedure name</p></li>
+<li><p><strong>start_rule</strong>: Start Rule created for while creating a Procedure</p></li>
+<li><p><strong>stop_rule</strong>: Stop Rule created for while creating a Procedure</p></li>
+<li><p><strong>additional_attributes</strong>: This field contains additional information and fields of Procedure like receipe_type, formula and receipe_version</p></li>
+<li><p><strong>is_deployed</strong>: This field represents the state whether model is being saved or deployed.</p></li>
+<li><p><strong>site</strong>: Site id under which procedure gets created</p></li>
+<li><p><strong>start_batch_tag</strong>: Tag represents the start batch state</p></li>
+<li><p><strong>stop_batch_tag</strong>: Tag represents the stop batch state</p></li>
+<li><p><strong>product</strong>: ID of the Product under which that procedure gets created</p></li>
+</ul>
+<div class="section" id="id16">
+<h3>The available methods are as follows:<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><strong>fetch_unit_procedures</strong>: The method returns all the UnitProcedures of the given
+Procedure in the form of <code class="docutils literal notranslate"><span class="pre">EntityList</span></code> where each object refers
+to <code class="docutils literal notranslate"><span class="pre">ProcedureStep</span></code>.</p>
+<p>The method parameters as included in v2.0.0 are as follows:</p>
+<ul class="simple">
+<li><p><strong>query_params (optional)</strong>: User can pass a dictionary of conditions
+and condition values to filter the UnitProcedures accordingly.</p></li>
+</ul>
+</li>
+<li><p><strong>create_unit_procedure</strong>: This method is used to create UnitProcedure inside a particular Procedure
+and returns the <code class="docutils literal notranslate"><span class="pre">UnitProcedure</span></code> Entity.</p>
+<p>The method parameters as included in v2.0.0 are as follows:</p>
+<ul class="simple">
+<li><p><strong>name</strong>: UnitProcedure Name</p></li>
+<li><p><strong>start_batch_tag</strong>: Tag Entity/Object represents the start batch of UnitProcedure</p></li>
+<li><p><strong>stop_batch_tag</strong>: Tag Entity/Object represents the stop batch of UnitProcedure</p></li>
+<li><p><strong>order</strong>: Sequence in which we want to add child nodes(UnitProcedure) inside parent(Procedure) node</p></li>
+<li><p><strong>start_rule</strong>: Rule Class instance</p></li>
+<li><p><strong>stop_rule</strong>: Rule Class instance</p></li>
+<li><p><strong>asset_list</strong>: List of asset ids</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="procedurestep">
+<h2>ProcedureStep<a class="headerlink" href="#procedurestep" title="Permalink to this headline">¶</a></h2>
+<p>This refers to the Node/Child(UnitProcedure/Operation/Phase/PhaseStep) added in Procedure Node in the hierarchy.</p>
+<p>The available attributes in this class are:</p>
+<ul class="simple">
+<li><p><strong>id</strong>: ProcedureStep ID</p></li>
+<li><p><strong>name</strong>: ProcedureStep name</p></li>
+<li><p><strong>start_rule</strong>: Start Rule created for while creating a ProcedureStep</p></li>
+<li><p><strong>stop_rule</strong>: Stop Rule created for while creating a ProcedureStep</p></li>
+<li><p><strong>step_type</strong>: Integer Field denoted the type of node(UnitProcedure/Operation/Phase/PhaseStep) at each step</p></li>
+<li><p><strong>order</strong>: Sequence in which we want to add child nodes inside parent(ProcedureStep) node</p></li>
+<li><p><strong>start_batch_tag</strong>: Tag represents the start batch state</p></li>
+<li><p><strong>stop_batch_tag</strong>: Tag represents the stop batch state</p></li>
+<li><p><strong>parent</strong>: ID of the parent ProcedureStep Node under which that procedure step gets created</p></li>
+<li><p><strong>procedure</strong>: ID of the Procedure under which that procedure step gets created</p></li>
+<li><p><strong>assets</strong>: List of asset ids</p></li>
+</ul>
+<div class="section" id="id17">
+<h3>The available methods are as follows:<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><strong>fetch_substep_details</strong>: The method returns all the ProcedureStep details like Operation/Phase/PhaseStep in the
+form of <code class="docutils literal notranslate"><span class="pre">EntityList</span></code> where each object refers to <code class="docutils literal notranslate"><span class="pre">ProcedureStep</span></code>.</p>
+<p>The method parameters as included in v2.0.0 are as follows:</p>
+<ul class="simple">
+<li><p><strong>query_params (optional)</strong>: User can pass a dictionary of conditions
+and condition values to filter the ProcedureStep accordingly.</p></li>
+</ul>
+</li>
+<li><p><strong>create_procedure_step</strong>: This method is used to create ProcedureStep inside a particular procedure step node
+and returns the <code class="docutils literal notranslate"><span class="pre">ProcedureStep</span></code> Entity.</p>
+<p>The method parameters as included in v2.0.0 are as follows:</p>
+<ul class="simple">
+<li><p><strong>name</strong>: ProcedureStep Name</p></li>
+<li><p><strong>start_batch_tag</strong>: Tag Entity/Object represents the start batch of UnitProcedure</p></li>
+<li><p><strong>stop_batch_tag</strong>: Tag Entity/Object represents the stop batch of UnitProcedure</p></li>
+<li><p><strong>procedure</strong>: Procedure Entity/Object under which that procedure step gets created</p></li>
+<li><p><strong>order</strong>: Sequence in which we want to add child nodes inside parent(ProcedureStep) node</p></li>
+<li><p><strong>start_rule</strong>: Rule Class instance</p></li>
+<li><p><strong>stop_rule</strong>: Rule Class instance</p></li>
+<li><p><strong>asset_list</strong>: List of asset ids</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="product">
+<h2>Product<a class="headerlink" href="#product" title="Permalink to this headline">¶</a></h2>
+<p>This refers to the Product under which all the Procedure and Procedure Step hierarchy is present or created.
+This is the root node of the entire hierarchy.</p>
+<p>The available attributes in this class are:</p>
+<ul class="simple">
+<li><p><strong>id</strong>: Product ID</p></li>
+<li><p><strong>name</strong>: Product name</p></li>
+<li><p><strong>client</strong>: Client id under which procedure gets created</p></li>
+<li><p><strong>description</strong>: This contains description of the product</p></li>
+</ul>
+<div class="section" id="id18">
+<h3>The available methods are as follows:<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><strong>get_procedures</strong>: The method returns all the Procedures of the given
+Product in the form of <code class="docutils literal notranslate"><span class="pre">EntityList</span></code> where each object refers
+to <code class="docutils literal notranslate"><span class="pre">Procedure</span></code> Entity.</p>
+<p>The method parameters as included in v2.0.0 are as follows:</p>
+<ul class="simple">
+<li><p><strong>query_params (optional)</strong>: User can pass a dictionary of conditions
+and condition values to filter the Procedures accordingly.</p></li>
+</ul>
+</li>
+<li><p><strong>create_procedure</strong>: This method is used to create Procedure inside a particular Product
+and returns the <code class="docutils literal notranslate"><span class="pre">Procedure</span></code> Entity.</p>
+<p>The method parameters as included in v2.0.0 are as follows:</p>
+<ul class="simple">
+<li><p><strong>name</strong>: UnitProcedure Name</p></li>
+<li><p><strong>site</strong>: Site id under which procedure gets created</p></li>
+<li><p><strong>start_batch_tag</strong>: Tag Entity/Object represents the start batch of Procedure</p></li>
+<li><p><strong>stop_batch_tag</strong>: Tag Entity/Object represents the stop batch of Procedure</p></li>
+<li><p><strong>start_rule</strong>: Rule Class instance</p></li>
+<li><p><strong>stop_rule</strong>: Rule Class instance</p></li>
+<li><p><strong>additional_attributes</strong>: This field contains additional information and fields of Procedure like receipe_type, formula and receipe_version</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="site">
+<h2>Site<a class="headerlink" href="#site" title="Permalink to this headline">¶</a></h2>
+<p>This refers to the User’s Client Site.</p>
+<p>The available attributes in this class are:</p>
+<ul class="simple">
+<li><p><strong>id</strong>: Site ID</p></li>
+<li><p><strong>name</strong>: Site name</p></li>
+<li><p><strong>country_name</strong>: Country name</p></li>
+<li><p><strong>state_name</strong>: State name</p></li>
+<li><p><strong>pin_code</strong>: PinCode where site belongs</p></li>
+<li><p><strong>address_line_1</strong>: Line one of the site address</p></li>
+<li><p><strong>address_line_2</strong>: Line two of the site address</p></li>
+<li><p><strong>country</strong>: Country Id site belongs to</p></li>
+<li><p><strong>state</strong>: State Id site belongs to</p></li>
+<li><p><strong>client</strong>: Client Id site belongs to</p></li>
+</ul>
+</div>
 </div>
 
 
@@ -851,6 +1068,11 @@ aggregated.</p></li>
 <li class="toctree-l2"><a class="reference internal" href="#model">Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#entitylist">EntityList</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tagdataiterator">TagDataIterator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#historicaltagdataiterator">HistoricalTagDataIterator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#procedure">Procedure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#procedurestep">ProcedureStep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#product">Product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#site">Site</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="model_creation.html">Model Creation</a></li>

@@ -78,12 +78,11 @@ This method returns the list of assets that the authenticated user has
 access to. The list of assets are an object of type ``EntityList``. More
 details on the class is provided below.
 
-The method parameters are as follows:
+The method parameters as included in v2.0.0 are as follows:
 
 -  **query\_params (optional)**: User can pass a dictionary of conditions 
    and condition values to filter the Assets accordingly.
    Filter conditions can be like          
-   
 |   ``{"created_at__gt": 162002555700, "status": 1}``
 
 ::
@@ -97,7 +96,7 @@ This method returns the list of context frames which are created using the asset
 that the user has access to. The list of context frames are an
 object of type ``EntityList``. More details on the class is provided below.
 
-The method parameters are as follows:
+The method parameters as included in v2.0.0 are as follows:
 
 -  **query\_params (optional)**: User can pass a dictionary of conditions 
    and condition values to filter the ContextFrame Occurrences accordingly.
@@ -111,7 +110,7 @@ The method parameters are as follows:
 .tags
 ~~~~~
 
-This method requires the following parameters to be called:
+The method parameters as included in v2.0.0 are as follows:
 
 **asset\_id (mandatory)**: The asset\_id of the asset whose tags are to
 be returned.
@@ -132,7 +131,7 @@ This method returns the list of all the data sources which the user has access t
 The list of data sources are an object of type ``EntityList``. More details on the class
 are provided below.
 
-The method parameters are as follows:
+The method parameters as included in v2.0.0 are as follows:
 
 -  **query\_params (optional)**: User can pass a dictionary of conditions 
    and condition values to filter the Assets accordingly.
@@ -154,6 +153,34 @@ following parameters to be called:
 -  **ml\_node (optional)**: If ``ml_node`` (numeric field) is specified,
    ``list_models`` will list all the custom models that are deployed
    into a specific ml node.
+
+.products
+~~~~~~~~~~
+This method is used to fetch list of all product belongs to a particular client.
+The method parameters as included in v2.0.0 are as follows:
+
+-  **query\_params (optional)**: User can pass a dictionary of conditions
+   and condition values to filter the Products accordingly.
+   Filter conditions can be like
+   ``{"created_at__gt": 162002555700}``
+
+::
+
+    products = client.products()
+
+.sites
+~~~~~~~
+This method is used to fetch all sites available for a user's client.
+The method parameters as included in v2.0.0 are as follows:
+
+-  **query\_params (optional)**: User can pass a dictionary of conditions
+   and condition values to filter the Products accordingly.
+   Filter conditions can be like
+   ``{"created_at__gt": 162002555700}``
+
+::
+
+    sites = client.sites()
 
 Entity
 ---------
@@ -224,12 +251,11 @@ The available methods are as follows:
 The method returns all the tags present in the given asset in the form
 of ``EntityList`` where each object refers to ``Tag``.
 
-The method parameters are as follows:
+The method parameters as included in v2.0.0 are as follows:
 
 -  **query\_params (optional)**: User can pass a dictionary of conditions 
    and condition values to filter the tags accordingly.
-   Filter conditions can be like
-
+   Filter conditions can be like 
 |   ``{"tag_type": 1, "edge_connector": 674}``
 
 .batches
@@ -238,12 +264,11 @@ The method parameters are as follows:
 The method returns all the batches present in the given asset in the
 form of ``EntityList`` where each object refers to ``Batch``.
 
-The method parameters are as follows:
+The method parameters as included in v2.0.0 are as follows:
 
 -  **query\_params (optional)**: User can pass a dictionary of conditions 
    and condition values to filter the batches accordingly.
    Filter conditions can be like 
-
 |   ``{"start_time__gt": 16267600304, "stop_time__lt": 16268600304}``
 
 .data
@@ -404,7 +429,6 @@ The available attributes in this class are:
 -  **batch_name**: Batch Name
 -  **start**: Batch start time in epoch
 -  **stop**: Batch stop time in epoch
--  **asset**: Asset ID
 -  **notes**: List of notes regarding the batch
 -  **is_questionable**: Whether the batch is questionable
 
@@ -512,6 +536,31 @@ The method parameters are as follows:
    of interpolations and aggregations here. Further details on
    transformations is provided towards the end of this documentation.
 
+.historical_data
+~~~~~~~~~~~~~~~~
+
+The method returns the historical tag data iterator for all the tags present in the
+datasource for the set ``start_time`` and ``stop_time``. It can be used to iterate
+through the ddata in custom batches as decided by the user. More details are
+provided under the ``HistoricalTagDataIterator`` subsection.
+
+The method parameters are as follows:
+
+-  **start\_time (mandatory)**: (epoch) This refers to the
+   ``start_time`` for fetching the data of the datasource.
+-  **stop\_time (mandatory)**: (epoch) This refers to the ``stop_time``
+   for fetching the data of the data source.
+-  **batch_size (optional)**: This refers to the number of rows in each page
+   while iterating through the historical data
+-  **max_records (optional)**: This refers to the maximum number of records
+   that are to be fetched in the API call
+-  **tags (optional)**: (EntityList) This is the entitylist of tags. This is an
+   optional value, and will take all the data source tags by default
+-  **return\_type (optional)**: The user can pass either ``pd``, which
+   will return the pandas dataframe iterator, or ``json`` which will
+   return json object on return. This value takes the ``pd`` value as
+   default.
+
 ContextFrame
 ---------------
 
@@ -535,12 +584,12 @@ The available methods are as follows:
    ContextFrame in the form of ``EntityList`` where each object refers
    to ``ContextFrameOccurrence``.
 
-The method parameters are as follows:
+   The method parameters as included in v2.0.0 are as follows:
 
--  **query\_params (optional)**: User can pass a dictionary of conditions 
-   and condition values to filter the ContextFrame Occurrences accordingly.
-   Filter conditions can be like 
-   ``{"start_ef_occurrence": "A3412", "stop_ef_occurrence": "C7415"}``
+   -  **query\_params (optional)**: User can pass a dictionary of conditions 
+      and condition values to filter the ContextFrame Occurrences accordingly.
+      Filter conditions can be like 
+      ``{"start_ef_occurrence": "A3412", "stop_ef_occurrence": "C7415"}``
 
 ContextFrameOccurrence
 -------------------------
@@ -729,6 +778,27 @@ method divides the complete interval between ``start_time`` and
 to 200,000 data points for all the tags. The user can loop through this
 interval to get all the data points.
 
+HistoricalTagDataIterator
+-------------------------
+
+Querying historical data for any set of tags in any given duration returns
+an instance of ``HistoricalTagDataIterator``, which can be used to iterate
+between the given time range. When the ``.historical_data`` of data source
+is called, the class queries via cursor, based upon the entered ``batch_size``
+
+The available methods are as follows:
+*************************************
+
+.get_complete_data_in_range
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The method loops through the complete range and returns the final data frame
+which is required. Note that this is meant to be used only for pandas return
+of historical data and not for json return. The method has the following parameters:
+
+-  **historical\_data\_iterator (mandatory)** This is the historicaldataiterator
+   object whose complete data is to be returned
+
 Transformations:
 ****************
 
@@ -765,3 +835,149 @@ Aggregation requires the following keys to be present:
 -  **aggregation\_dict (mandatory)**: This dictionary refers to the
    methods on which the different columns in the dataset are to be
    aggregated.
+
+Procedure
+---------------
+
+This refers to the product (Product Harbour) procedures. Procedures are present/created within the Product
+
+The available attributes in this class are:
+
+- **id**: Procedure ID
+- **name**: Procedure name
+- **start_rule**: Start Rule created for while creating a Procedure
+- **stop_rule**: Stop Rule created for while creating a Procedure
+- **additional_attributes**: This field contains additional information and fields of Procedure like receipe_type, formula and receipe_version
+- **is_deployed**: This field represents the state whether model is being saved or deployed.
+- **site**: Site id under which procedure gets created
+- **start_batch_tag**: Tag represents the start batch state
+- **stop_batch_tag**: Tag represents the stop batch state
+- **product**: ID of the Product under which that procedure gets created
+
+
+The available methods are as follows:
+*************************************
+
+-  **fetch_unit_procedures**: The method returns all the UnitProcedures of the given
+   Procedure in the form of ``EntityList`` where each object refers
+   to ``ProcedureStep``.
+
+   The method parameters as included in v2.0.0 are as follows:
+
+   -  **query\_params (optional)**: User can pass a dictionary of conditions
+      and condition values to filter the UnitProcedures accordingly.
+
+-  **create_unit_procedure**: This method is used to create UnitProcedure inside a particular Procedure
+   and returns the ``UnitProcedure`` Entity.
+
+   The method parameters as included in v2.0.0 are as follows:
+
+   -  **name**: UnitProcedure Name
+   -  **start_batch_tag**: Tag Entity/Object represents the start batch of UnitProcedure
+   -  **stop_batch_tag**: Tag Entity/Object represents the stop batch of UnitProcedure
+   -  **order**: Sequence in which we want to add child nodes(UnitProcedure) inside parent(Procedure) node
+   -  **start_rule**: Rule Class instance
+   -  **stop_rule**: Rule Class instance
+   -  **asset_list**: List of asset ids
+
+ProcedureStep
+---------------
+
+This refers to the Node/Child(UnitProcedure/Operation/Phase/PhaseStep) added in Procedure Node in the hierarchy.
+
+The available attributes in this class are:
+
+- **id**: ProcedureStep ID
+- **name**: ProcedureStep name
+- **start_rule**: Start Rule created for while creating a ProcedureStep
+- **stop_rule**: Stop Rule created for while creating a ProcedureStep
+- **step_type**: Integer Field denoted the type of node(UnitProcedure/Operation/Phase/PhaseStep) at each step
+- **order**: Sequence in which we want to add child nodes inside parent(ProcedureStep) node
+- **start_batch_tag**: Tag represents the start batch state
+- **stop_batch_tag**: Tag represents the stop batch state
+- **parent**: ID of the parent ProcedureStep Node under which that procedure step gets created
+- **procedure**: ID of the Procedure under which that procedure step gets created
+- **assets**: List of asset ids
+
+
+The available methods are as follows:
+*************************************
+
+-  **fetch_substep_details**: The method returns all the ProcedureStep details like Operation/Phase/PhaseStep in the
+   form of ``EntityList`` where each object refers to ``ProcedureStep``.
+
+   The method parameters as included in v2.0.0 are as follows:
+
+   -  **query\_params (optional)**: User can pass a dictionary of conditions
+      and condition values to filter the ProcedureStep accordingly.
+
+-  **create_procedure_step**: This method is used to create ProcedureStep inside a particular procedure step node
+   and returns the ``ProcedureStep`` Entity.
+
+   The method parameters as included in v2.0.0 are as follows:
+
+   -  **name**: ProcedureStep Name
+   -  **start_batch_tag**: Tag Entity/Object represents the start batch of UnitProcedure
+   -  **stop_batch_tag**: Tag Entity/Object represents the stop batch of UnitProcedure
+   -  **procedure**: Procedure Entity/Object under which that procedure step gets created
+   -  **order**: Sequence in which we want to add child nodes inside parent(ProcedureStep) node
+   -  **start_rule**: Rule Class instance
+   -  **stop_rule**: Rule Class instance
+   -  **asset_list**: List of asset ids
+
+Product
+-------
+
+This refers to the Product under which all the Procedure and Procedure Step hierarchy is present or created.
+This is the root node of the entire hierarchy.
+
+The available attributes in this class are:
+
+- **id**: Product ID
+- **name**: Product name
+- **client**: Client id under which procedure gets created
+- **description**: This contains description of the product
+
+
+The available methods are as follows:
+*************************************
+
+-  **get_procedures**: The method returns all the Procedures of the given
+   Product in the form of ``EntityList`` where each object refers
+   to ``Procedure`` Entity.
+
+   The method parameters as included in v2.0.0 are as follows:
+
+   -  **query\_params (optional)**: User can pass a dictionary of conditions
+      and condition values to filter the Procedures accordingly.
+
+-  **create_procedure**: This method is used to create Procedure inside a particular Product
+   and returns the ``Procedure`` Entity.
+
+   The method parameters as included in v2.0.0 are as follows:
+
+   -  **name**: UnitProcedure Name
+   -  **site**: Site id under which procedure gets created
+   -  **start_batch_tag**: Tag Entity/Object represents the start batch of Procedure
+   -  **stop_batch_tag**: Tag Entity/Object represents the stop batch of Procedure
+   -  **start_rule**: Rule Class instance
+   -  **stop_rule**: Rule Class instance
+   -  **additional_attributes**: This field contains additional information and fields of Procedure like receipe_type, formula and receipe_version
+
+Site
+----
+
+This refers to the User's Client Site.
+
+The available attributes in this class are:
+
+- **id**: Site ID
+- **name**: Site name
+- **country_name**: Country name
+- **state_name**: State name
+- **pin_code**: PinCode where site belongs
+- **address_line_1**: Line one of the site address
+- **address_line_2**: Line two of the site address
+- **country**: Country Id site belongs to
+- **state**: State Id site belongs to
+- **client**: Client Id site belongs to

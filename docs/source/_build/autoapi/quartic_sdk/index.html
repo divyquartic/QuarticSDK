@@ -49,7 +49,13 @@
 <li class="toctree-l3"><a class="reference internal" href="core/entities/context_frame/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quartic_sdk.core.entities.context_frame</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/entities/context_frame_occurrence/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quartic_sdk.core.entities.context_frame_occurrence</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/entities/edge_connector/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quartic_sdk.core.entities.edge_connector</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/entities/event_frame/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quartic_sdk.core.entities.event_frame</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/entities/event_frame_occurrence/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quartic_sdk.core.entities.event_frame_occurrence</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/entities/model/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quartic_sdk.core.entities.model</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/entities/procedure/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quartic_sdk.core.entities.procedure</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/entities/procedure_step/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quartic_sdk.core.entities.procedure_step</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/entities/product/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quartic_sdk.core.entities.product</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/entities/site/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quartic_sdk.core.entities.site</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/entities/tag/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quartic_sdk.core.entities.tag</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/entities/type_mapping/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quartic_sdk.core.entities.type_mapping</span></code></a></li>
 </ul>
@@ -81,6 +87,7 @@
 <li class="toctree-l2"><a class="reference internal" href="utilities/constants/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quartic_sdk.utilities.constants</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="utilities/exceptions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quartic_sdk.utilities.exceptions</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="utilities/test_helpers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quartic_sdk.utilities.test_helpers</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities/utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quartic_sdk.utilities.utils</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -93,6 +100,7 @@
 <li class="toctree-l1"><a class="reference internal" href="_version/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quartic_sdk._version</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_client/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quartic_sdk.api_client</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="exceptions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quartic_sdk.exceptions</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphql_client/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quartic_sdk.graphql_client</span></code></a></li>
 </ul>
 </div>
 </div>
@@ -108,6 +116,9 @@
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#quartic_sdk.APIClient" title="quartic_sdk.APIClient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">APIClient</span></code></a></p></td>
 <td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quartic_sdk.GraphqlClient" title="quartic_sdk.GraphqlClient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GraphqlClient</span></code></a></p></td>
+<td><p>Execute Query.</p></td>
 </tr>
 </tbody>
 </table>
@@ -164,6 +175,14 @@
 </dd></dl>
 
 <dl class="py method">
+<dt id="quartic_sdk.APIClient.event_frames">
+<code class="sig-name descname"><span class="pre">event_frames</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quartic_sdk.APIClient.event_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the Event Frames
+:param query_params: Dictionary of filter conditions
+:return: (EntityList) List of Event Frames belonging to the asset</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="quartic_sdk.APIClient.list_models">
 <code class="sig-name descname"><span class="pre">list_models</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_active</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ml_node</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quartic_sdk.APIClient.list_models" title="Permalink to this definition">¶</a></dt>
 <dd><p>List models and its parameters accessible by user
@@ -171,6 +190,69 @@
 :param ml_node:   Ml Node id to filter models deployed to particular node
 :param query_params: Dictionary of filter conditions
 :return:          list of dictionary</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="quartic_sdk.APIClient.products">
+<code class="sig-name descname"><span class="pre">products</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quartic_sdk.APIClient.products" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to fetch list of all product belongs to a particular client
+:param query_params: Dictionary of filter conditions
+:return: Product(Product Entity) Objects</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="quartic_sdk.APIClient.sites">
+<code class="sig-name descname"><span class="pre">sites</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quartic_sdk.APIClient.sites" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to fetch all sites available for a user’s client
+:param query_params: Dictionary of filter conditions
+:return: Site(Site Entity) Objects</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="quartic_sdk.GraphqlClient">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">quartic_sdk.</span></code><code class="sig-name descname"><span class="pre">GraphqlClient</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">aiohttp.ClientTimeout</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verify_ssl</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quartic_sdk.GraphqlClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute Query.</p>
+<dl class="py method">
+<dt id="quartic_sdk.GraphqlClient.version">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">version</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quartic_sdk.GraphqlClient.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the SDK version</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="quartic_sdk.GraphqlClient._get_client">
+<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">_get_client</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">aiohttp.ClientSession</span><a class="headerlink" href="#quartic_sdk.GraphqlClient._get_client" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get aiohttp client session object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="quartic_sdk.GraphqlClient._get_graphql_url">
+<code class="sig-name descname"><span class="pre">_get_graphql_url</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#quartic_sdk.GraphqlClient._get_graphql_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates the graphql endpoint.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="quartic_sdk.GraphqlClient.__execute__query">
+<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">__execute__query</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quartic_sdk.GraphqlClient.__execute__query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute query</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="quartic_sdk.GraphqlClient.execute_query">
+<code class="sig-name descname"><span class="pre">execute_query</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quartic_sdk.GraphqlClient.execute_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute query with query param.
+:param query: Query that needs to be executed
+:param variables: Dictionary of variables that are used inside the query.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="quartic_sdk.GraphqlClient.execute_async_query">
+<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">execute_async_query</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quartic_sdk.GraphqlClient.execute_async_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute query asynchronously.
+:param query: Query that needs to be executed
+:param variables: Dictionary of variables that are used inside the query.
+:return:</p>
 </dd></dl>
 
 </dd></dl>
