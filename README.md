@@ -67,13 +67,57 @@ query MyQuery {
 '''
 
 result = client.execute_query(query=query)
-```
 
-You should see the following result:
+# To execute query asynchronously use the function below.
 
-```json
+#You should see the following result:
+
 {'data': {'Site': [{'id': '1', 'name': 'quartic'}, {'id': '8', 'name': 'AB inbev site 1'}, {'id': '12', 'name': 'Test 123'}]}
+
+async def execute_graphql_query():
+    query='''
+        query MyQuery {
+          Site {
+            id
+            name
+          }
+        }
+        '''
+    resp = await client.execute_async_query(query=query)
+    return resp
+
+# Note: The above function will return a coroutine object.
+
+# Example to upload a file.
+
+query = '''
+    mutation($file: Upload!, $edge_connector: Int!, $date_format: DateTime!) {
+        uploadTelemetryCsv(
+            file: $file,
+            fileName: "123",
+            edgeConnector: $edge_connector,
+            dateFormat: $date_format
+            )
+            {
+            taskId
+            status
+        }
+    }
+'''
+
+
+variables = {
+    'file': open('<path/to/file>', 'rb'),
+    'edge_connector': 'edgeConnector Id',
+    'date_format': 'DatTime format'
+}
+
+response = client.execute_query(query=query, variables=variables)
+
+
 ```
+
+
 
 ## Documentation
 ---
