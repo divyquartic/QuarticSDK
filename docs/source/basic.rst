@@ -76,20 +76,46 @@ This method returns the current version of the package.
 This method executes the GraphQL query.
 
 -  **query\_params (required)**: User needs to pass the string in the format given below:
-|   ```
-query='''
-query MyQuery {
-  Site {
-    id
-    name
-  }
-}'''
-
-```
 
 ::
 
-    client.execute(query) # Returns a json response on a success.
+    query='''
+        query MyQuery {
+          Site {
+            id
+            name
+          }
+        }'''
+
+-  **variables\_params (optional)**: User can pass a dictionary of variables which are defined in the query in the format below.
+
+::
+
+    query = '''
+        mutation($file: Upload!, $edge_connector: Int!, $date_format: DateTime!) {
+            uploadTelemetryCsv(
+                file: $file,
+                fileName: "123",
+                edgeConnector: $edge_connector,
+                dateFormat: $date_format
+                )
+                {
+                taskId
+                status
+            }
+        }
+    '''
+
+    variables = {
+        'file': open('<path/to/file>', 'rb'),
+        'edge_connector': 'edgeConnector Id',
+        'date_format': 'DatTime format'
+    }
+
+
+::
+
+    client.execute(query, variables) # Returns a json response on a success.
 
 
 ===============
