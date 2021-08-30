@@ -12,7 +12,7 @@ GraphQL Client
 GraphQLClient
 ------------
 
-Class refers to the Graphql client which is used as the interface between
+Class refers to the GraphQLClient which is used as the interface between
 the user querying the Quartic AI Platform and their use case.
 
 This class has the following parameters for initialization:
@@ -38,7 +38,7 @@ The two methods are Basic Authentication and OAuth2.0:
 Basic Authentication:
 ~~~~~~~~~~~~~~~~~~~~
 
-The user must pass the username and password along with the hostname in the GraphqlClient
+The user must pass the username and password along with the hostname in the GraphQLClient
 to ensure the successive API calls are authenticated via Basic Authentication.
 
 ::

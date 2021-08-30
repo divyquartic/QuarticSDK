@@ -42,7 +42,7 @@ available attributes.</p>
 <h1>GraphQL Client<a class="headerlink" href="#graphql-client" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="graphqlclient">
 <h2>GraphQLClient<a class="headerlink" href="#graphqlclient" title="Permalink to this headline">¶</a></h2>
-<p>Class refers to the Graphql client which is used as the interface between
+<p>Class refers to the GraphQLClient which is used as the interface between
 the user querying the Quartic AI Platform and their use case.</p>
 <p>This class has the following parameters for initialization:</p>
 <ul class="simple">
@@ -63,7 +63,7 @@ verified for SSL.</p></li>
 <h3>The two methods are BasicAuthentication and OAuth2.0:<a class="headerlink" href="#the-two-methods-are-basicauthentication-and-oauth2-0" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="basicauthentication">
 <h4>BasicAuthentication:<a class="headerlink" href="#basicauthentication" title="Permalink to this headline">¶</a></h4>
-<p>The user must pass the username and password along with the hostname in the GraphqlClient
+<p>The user must pass the username and password along with the hostname in the GraphQLClient
 to ensure the successive API calls are authenticated via Basic Authentication</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">GraphqlClient</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;http://test.quartic.ai&quot;</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="s2">&quot;username&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
 </pre></div>
