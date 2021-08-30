@@ -51,8 +51,7 @@ Classes
 
 
 
-.. class:: Asset(body_json, api_helper)
-
+.. class:: Asset
 
    Bases: :class:`quartic_sdk.core.entities.base.Base`
 
@@ -99,7 +98,11 @@ Classes
           it takes the value as "json"
       :param transformations: Refers to the list of transformations. It supports either
           interpolation or aggregation, depending upon which, we pass the value of this
-          dictionary. An example value here is:
+          dictionary. If `transformation_type` is "aggregation", an optional key can be
+          passed called `aggregation_timestamp`, which determines how the timestamp information
+          will be retained after aggregation. Valid options are "first", "last" or "discard". By
+          default, the last timestamp in each group will be retained.
+          An example value here is:
           [{
               "transformation_type": "interpolation",
               "column": "3",
@@ -107,7 +110,8 @@ Classes
           }, {
               "transformation_type": "aggregation",
               "aggregation_column": "4",
-              "aggregation_dict": {"3": "max"}
+              "aggregation_dict": {"3": "max"},
+              "aggregation_timestamp": "last",
           }]
       :return: (DataIterator) DataIterator object which can be iterated to get the data
           between the given duration
@@ -123,8 +127,7 @@ Classes
 
 
 
-.. class:: Batch(body_json, api_helper)
-
+.. class:: Batch
 
    Bases: :class:`quartic_sdk.core.entities.base.Base`
 
@@ -137,8 +140,7 @@ Classes
 
 
 
-.. class:: ContextFrame(body_json, api_helper)
-
+.. class:: ContextFrame
 
    Bases: :class:`quartic_sdk.core.entities.base.Base`
 
@@ -157,8 +159,7 @@ Classes
 
 
 
-.. class:: ContextFrameOccurrence(body_json, api_helper)
-
+.. class:: ContextFrameOccurrence
 
    Bases: :class:`quartic_sdk.core.entities.base.Base`
 
@@ -212,7 +213,11 @@ Classes
           it takes the value as "json"
       :param transformations: Refers to the list of transformations. It supports either
           interpolation or aggregation, depending upon which, we pass the value of this
-          dictionary. An example value here is:
+          dictionary. If `transformation_type` is "aggregation", an optional key can be
+          passed called `aggregation_timestamp`, which determines how the timestamp information
+          will be retained after aggregation. Valid options are "first", "last" or "discard". By
+          default, the last timestamp in each group will be retained.
+          An example value here is:
           [{
               "transformation_type": "interpolation",
               "column": "3",
@@ -220,7 +225,8 @@ Classes
           }, {
               "transformation_type": "aggregation",
               "aggregation_column": "4",
-              "aggregation_dict": {"3": "max"}
+              "aggregation_dict": {"3": "max"},
+              "aggregation_timestamp": "last",
           }]
       :return: (DataIterator) DataIterator object which can be iterated to get the data
           between the given duration
@@ -266,7 +272,11 @@ Classes
           it takes the value as "json"
       :param transformations: Refers to the list of transformations. It supports either
           interpolation or aggregation, depending upon which, we pass the value of this
-          dictionary. An example value here is:
+          dictionary. If `transformation_type` is "aggregation", an optional key can be
+          passed called `aggregation_timestamp`, which determines how the timestamp information
+          will be retained after aggregation. Valid options are "first", "last" or "discard". By
+          default, the last timestamp in each group will be retained.
+          An example value here is:
           [{
               "transformation_type": "interpolation",
               "column": "3",
@@ -274,7 +284,8 @@ Classes
           }, {
               "transformation_type": "aggregation",
               "aggregation_column": "4",
-              "aggregation_dict": {"3": "max"}
+              "aggregation_dict": {"3": "max"},
+              "aggregation_timestamp": "last",
           }]
       :return: (DataIterator) DataIterator object which can be iterated to get the data
           between the given duration
@@ -311,8 +322,7 @@ Classes
 
 
 
-.. class:: EventFrame(body_json, api_helper)
-
+.. class:: EventFrame
 
    Bases: :class:`quartic_sdk.core.entities.base.Base`
 
@@ -347,8 +357,7 @@ Classes
 
 
 
-.. class:: Site(body_json, api_helper)
-
+.. class:: Site
 
    Bases: :class:`quartic_sdk.core.entities.base.Base`
 
@@ -373,8 +382,7 @@ Classes
 
 
 
-.. class:: Procedure(body_json, api_helper)
-
+.. class:: Procedure
 
    Bases: :class:`quartic_sdk.core.entities.base.Base`
 
@@ -413,8 +421,7 @@ Classes
 
 
 
-.. class:: Product(body_json, api_helper)
-
+.. class:: Product
 
    Bases: :class:`quartic_sdk.core.entities.base.Base`
 
@@ -448,8 +455,7 @@ Classes
 
 
 
-.. class:: ProcedureStep(body_json, api_helper)
-
+.. class:: ProcedureStep
 
    Bases: :class:`quartic_sdk.core.entities.base.Base`
 

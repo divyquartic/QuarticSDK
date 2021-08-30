@@ -5,6 +5,58 @@ Basic Functionality
 This article explains the various classes of Quartic SDK along with their methods and
 available attributes.
 
+===============
+GraphQL Client
+===============
+
+GraphQLClient
+------------
+
+Class refers to the GraphQLClient which is used as the interface between
+the user querying the Quartic AI Platform and their use case.
+
+This class has the following parameters for initialization:
+
+-  **url (mandatory)**: Refers to the host url the user connects to for
+   making API calls.
+-  **username (optional)**: Required for Basic Authentication.
+-  **password (optional)**: Required for Basic Authentication.
+-  **token (optional)**: Required for OAuth2.0 Authentication.
+-  **ssl (optional)**: Required when the host needs to be
+   verified for SSL.
+- **timeout (optional)**: Required if the user wants to specify timeout for api calls.
+
+Here's an example:
+
+::
+
+    client = GraphqlClient(url='https://stag.quartic.ai', username="username", password="password")
+
+The two methods are BasicAuthentication and OAuth2.0:
+*****************************************************
+
+BasicAuthentication:
+~~~~~~~~~~~~~~~~~~~~
+
+The user must pass the username and password along with the hostname in the GraphQLClient
+to ensure the successive API calls are authenticated via Basic Authentication
+
+::
+
+    client = GraphqlClient(host="http://test.quartic.ai", username="username", password="password")
+
+OAuth2.0
+~~~~~~~~
+
+The user must pass the OAuth token along with the hostname to ensure that all the
+successive API calls are authenticated via OAuth2.0. For the detailed information on fetching
+tokens, please refer to the Global Settings article in the Quartic Knowledge Base.
+
+::
+
+    client = GraphqlClient(url="http://test.quartic.ai", oauth_token="9865c994212e495690c2db3fc6cbdfea")
+
+
 APIClient
 ------------
 
@@ -29,6 +81,40 @@ Here's an example:
     client = APIClient(host="http://test.quartic.ai", username="username", password="password")
 
 It can be noted that the class provides two methods of authentication to the user.
+
+The available methods are as follows:
+*************************************
+
+.version
+~~~~~~~~
+
+This method returns the current version of the package.
+
+::
+
+    client.version() # Returns 2.1.0 as of the time of writing this document
+
+.execute
+~~~~~~~~
+
+This method execute the given query the current version of the package.
+
+-  **query\_params (required)**: User can pass a dictionary of conditions
+   and condition values to filter the Assets accordingly.
+   Filter conditions can be like
+|   ``'''
+query MyQuery {
+  Site {
+    id
+    name
+  }
+}
+'''``
+
+::
+
+    client.execute() # Returns a json response on a success.
+
 
 The two methods are BasicAuthentication and OAuth2.0:
 *****************************************************
